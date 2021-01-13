@@ -1,4 +1,5 @@
-#SELECT * FROM sys.new_table;
 #	insert into new_table (name) values('Someone');
 #insert into new_table(name) values('Third');
-SELECT * FROM sys.new_table;
+#SELECT * FROM sys.new_table;
+insert into new_table(name) values('Third1');
+#SELECT * FROM new_table;
