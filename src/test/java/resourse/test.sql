@@ -1,5 +1,4 @@
-#	insert into new_table (name) values('Someone');
-#insert into new_table(name) values('Third');
-#SELECT * FROM sys.new_table;
-insert into new_table(name) values('Third1');
-#SELECT * FROM new_table;
+#insert into new_schema.new_table(name ) value ('SomeoneElse');
+#select * from new_table;
+#update new_table set name='SomeoneElse' where id = 5 ;
+delete  from new_table where id = 12;
