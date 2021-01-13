@@ -8,7 +8,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Util {
-    private final String HOST = "jdbc:mysql://localhost:3306/new_schema";
+    private final String HOST = "jdbc:mysql://localhost:3306/testdb?useSSL=false";
     private final String USERNAME="root";
     private String PASSWORD="root";
 
