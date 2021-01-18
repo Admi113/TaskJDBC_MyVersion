@@ -4,13 +4,15 @@ import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import java.util.List;
 
 public class UserDaoHibernateImpl implements UserDao {
-    Session currentSession;
-    Transaction transaction;
+    private final SessionFactory sessionFactory = Util.getSessionFactory();
+    private Session currentSession;
+    private Transaction transaction;
 
     public UserDaoHibernateImpl() {
     }
@@ -40,7 +42,7 @@ public class UserDaoHibernateImpl implements UserDao {
         try {
             Query query = currentSession.createSQLQuery(sql).addEntity(User.class);
             query.executeUpdate();
-        }catch (Exception ignore){
+        } catch (Exception ignore) {
         }
         closeTransactionAndSession();
     }
@@ -85,13 +87,14 @@ public class UserDaoHibernateImpl implements UserDao {
     }
 
     public void openTransactionAndSession() {
-        currentSession = new Util().getSessionFactory()
-                .openSession();
+        currentSession = sessionFactory
+                .getCurrentSession();
         transaction = currentSession.beginTransaction();
     }
 
 
     public void closeTransactionAndSession() {
         transaction.commit();
+//        currentSession.close();
     }
 }
