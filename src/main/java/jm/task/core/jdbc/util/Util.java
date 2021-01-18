@@ -1,6 +1,8 @@
 package jm.task.core.jdbc.util;
 
-import com.mysql.fabric.jdbc.FabricMySQLDriver;
+//import com.mysql.fabric.jdbc.FabricMySQLDriver;
+import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
+import jm.task.core.jdbc.exceptions.DBException;
 import jm.task.core.jdbc.model.User;
 import org.hibernate.SessionFactory;
 
@@ -16,25 +18,27 @@ import java.sql.SQLException;
 
 
 public class Util {
-    private final String HOST = "jdbc:mysql://localhost:3306/testdb?useSSL=false";
+//    private final String HOST = "jdbc:mysql://localhost:3306/new_schema?useSSL=false";
+    private final String HOST = "jdbc:mysql://localhost:3306/testdb?useLegacyDatetimeCode=false&serverTimezone=Europe/Moscow";
     private final String USERNAME="root";
     private String PASSWORD="root";
     private static SessionFactory sessionFactory;
     private Connection connection;
 
     public Util() {
-
-            UserDAOHibernateSessionImpl();
+        UserDAOHibernateSessionImpl();
+//        UserDAOJDBCConnection();
 
     }
 
     public void UserDAOJDBCConnection(){
         try {
-            Driver driver = new FabricMySQLDriver();
-            DriverManager.registerDriver(driver);
+            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+//            Driver driver = new FabricMySQLDriver();
+//            DriverManager.registerDriver(driver);
 
             connection= DriverManager.getConnection(HOST,USERNAME,PASSWORD);
-        } catch (SQLException  throwables) {
+        } catch (SQLException | InstantiationException | ClassNotFoundException | IllegalAccessException throwables) {
             throwables.printStackTrace();
         }
     }
@@ -55,10 +59,12 @@ public class Util {
         sessionFactory = configuration.buildSessionFactory(builder.build());
     }
 
+
     public  SessionFactory getSessionFactory() {
         System.out.println("Сессия получена");
         return sessionFactory;
     }
+
 
     public Connection getConnection() {
         return connection;

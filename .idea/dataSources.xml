@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="new_schema@localhost" uuid="473f9c48-b571-4373-9800-b2f50f0e9a78">
+    <data-source source="LOCAL" name="testdb@localhost" uuid="1b68cf9d-ae53-4a82-a78a-df0f22c1e804">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/new_schema</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/testdb</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
+      <driver-properties>
+        <property name="serverTimezone" value="UTC" />
+      </driver-properties>
     </data-source>
   </component>
 </project>

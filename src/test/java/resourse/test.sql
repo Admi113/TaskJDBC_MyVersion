@@ -10,8 +10,8 @@
 #                                       `lastName` VARCHAR(45) NOT NULL DEFAULT 'Иванов' ,
 #                                       `age` TINYINT(3) NOT NULL DEFAULT 33 ,
 #                                       PRIMARY KEY (`id`));
-DROP TABLE `testdb`.`testtable`;
+# DROP TABLE `testdb`.`testtable`;
 #INSERT INTO testdb.testtable(name, lastName, age) VALUES (?,?,?);
-# DELETE FROM testdb. testtable WHERE id = ?;
+DELETE FROM new_schema. new_table ;
 # select * from testdb.testtable;
 # delete  from testdb.testtable;

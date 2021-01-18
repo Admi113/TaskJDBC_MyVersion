@@ -99,7 +99,7 @@ public class UserDaoJDBCImpl implements UserDao {
     }
 
     public void cleanUsersTable() {
-        String sql = "delete  from testdb.testtable;";
+        String sql = "DELETE  FROM testdb.testtable;";
         try {
             statement.executeUpdate(sql);
         } catch (SQLException throwables) {
