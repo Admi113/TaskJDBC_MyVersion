@@ -1,9 +1,6 @@
 package jm.task.core.jdbc.util;
 
-//import com.mysql.fabric.jdbc.FabricMySQLDriver;
 
-import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
-import jm.task.core.jdbc.exceptions.DBException;
 import jm.task.core.jdbc.model.User;
 import org.hibernate.SessionFactory;
 
@@ -12,7 +9,6 @@ import org.hibernate.cfg.Configuration;
 
 
 import java.sql.Connection;
-import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
@@ -23,7 +19,7 @@ public class Util {
     private final String USERNAME = "root";
     private String PASSWORD = "root";
     private static SessionFactory sessionFactory;
-    private Connection connection;
+    private static Connection connection;
 
     public Util() {
         UserDAOJDBCConnection();
@@ -65,7 +61,7 @@ public class Util {
     }
 
 
-    public Connection getConnection() {
+    public static Connection getConnection() {
         return connection;
     }
 
