@@ -38,6 +38,7 @@ public class Util {
     }
 
     public static void UserDAOHibernateSessionImpl() {
+
         Configuration configuration = new Configuration();
         configuration.addAnnotatedClass(User.class);
         configuration.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
